@@ -1,1 +1,4 @@
-Visto el video 8 funcionando respaldado
+
+* dd($request->all()); metodo para debuggear rompiendo el flujo
+
+* Visto el video 9 crud de administradores funcionando respaldado
