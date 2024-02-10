@@ -111,7 +111,14 @@
   <!-- Sidebar -->
   <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
-    
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="{{ asset('assets/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+        </div>
+        <div class="info">
+          <a class="d-block">{{ Auth::user()->name }}</a>
+        </div>
+      </div>
 
     <!-- Sidebar Menu -->
     <nav class="mt-2">
@@ -136,8 +143,17 @@
         </li>
 
         <li class="nav-item">
+          <a href="{{ url('admin/category/list')}}" class="nav-link @if(Request::segment(2) == 'category') active @endif">
+            <i class="nav-icon fas fa-list-alt"></i>
+            <p>
+              Categorias
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item">
           <a href="{{ url('admin/product/list')}}" class="nav-link @if(Request::segment(2) == 'product') active @endif">
-            <i class="nav-icon fas fa-user"></i>
+            <i class="nav-icon fas fa-list-alt"></i>
             <p>
               Product
             </p>

@@ -27,11 +27,12 @@
 						<div class="card-body">
 							<div class="form-group">
 								<label>Nombre</label>
-								<input type="text" class="form-control" value="{{ $getRecord->name }}" name="name" required placeholder="Ingrese Nombre">
+								<input type="text" class="form-control" value="{{ old('name', $getRecord->name) }}" name="name" required placeholder="Ingrese Nombre">
 							</div>
 							<div class="form-group">
 								<label>Email</label>
-								<input type="email" class="form-control" value="{{ $getRecord->email }}" name="email" required placeholder="Ingrese email">
+								<input type="email" class="form-control" value="{{ old('email', $getRecord->email) }}" name="email" required placeholder="Ingrese email">
+								<div style="color: red;">{{ $errors->first('email') }}</div>
 							</div>
 							<div class="form-group">
 								<label>Password</label>
