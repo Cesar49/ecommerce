@@ -1,4 +1,4 @@
 
 * dd($request->all()); metodo para debuggear rompiendo el flujo
 
-* Visto el video 11 crud de categorias funcionando respaldado
+* Visto el video 12 crud de sub categorias funcionando respaldado
