@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BrandModel extends Model
+class ColorModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'brand';
+    protected $table = 'color';
 
 
     static public function getSingle($id){
@@ -19,10 +19,10 @@ class BrandModel extends Model
 
     static public function getRecord()
     {
-        return self::select('brand.*','users.name as created_by_name')
-        ->join('users', 'users.id', '=', 'brand.created_by')
-        ->where('brand.is_delete', '=', 0)
-        ->orderBy('brand.id', 'desc')
+        return self::select('color.*','users.name as created_by_name')
+        ->join('users', 'users.id', '=', 'color.created_by')
+        ->where('color.is_delete', '=', 0)
+        ->orderBy('color.id', 'desc')
         ->get();
     }
 }

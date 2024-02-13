@@ -11,7 +11,7 @@ class CategoryModel extends Model
 
     protected $table = 'category';
 
-     static public function getSingle($id){
+    static public function getSingle($id){
 
         return self::find($id);
     }
@@ -19,9 +19,9 @@ class CategoryModel extends Model
     static public function getRecord()
     {
         return self::select('category.*','users.name as created_by_name')
-               ->join('users', 'users.id', '=', 'category.created_by')
-               ->where('category.is_delete', '=', 0)
-               ->orderBy('category.id', 'desc')
-               ->get();
+        ->join('users', 'users.id', '=', 'category.created_by')
+        ->where('category.is_delete', '=', 0)
+        ->orderBy('category.id', 'desc')
+        ->get();
     }
 }
