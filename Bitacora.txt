@@ -1,4 +1,5 @@
 
 * dd($request->all()); metodo para debuggear rompiendo el flujo
 
-* Visto el video 14 y el 15 creacion del crud de la marca y el color funcionando respaldado
+* visto el video 17 funcionando y respaldado 
+
