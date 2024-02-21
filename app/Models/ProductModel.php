@@ -23,12 +23,17 @@ class ProductModel extends Model
         ->join('users', 'users.id', '=', 'product.created_by')
         ->where('product.is_delete', '=', 0)
         ->orderBy('product.id', 'desc')
-        ->paginate(1);
+        ->paginate(10);
     }
 
 
     static public function checkSlug($slug)
     {
         return self::where('slug', '=', $slug)->count();
+    }
+
+    public function getColor()
+    {
+        return $this->hasMany(ProductColorModel::class, "product_id");
     }
 }
