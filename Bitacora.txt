@@ -1,9 +1,0 @@
-
-* dd($request->all()); metodo para debuggear rompiendo el flujo
-
-* visto el video 17 funcionando y respaldado y subido a github
-
-* visto el video 18 funcionando y respaldado sin subir a github
-
-* visto el video 20 funcionando respaldado y enviado a github
-

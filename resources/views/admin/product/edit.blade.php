@@ -23,7 +23,7 @@
 				<div class="col-md-12">
 					@include('admin.layouts._message')
 					<div class="card card-primary">
-						<form action="" method="post">
+						<form action="" method="post" enctype="multipart/form-data">
 							{{ csrf_field() }}
 							<div class="card-body">
 								<div class="row">
@@ -110,14 +110,14 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label>Precio ($)<span style="color: red;">*</span> </label>
-											<input type="text" class="form-control" name="price" required value="{{ $product->price }}" placeholder="Ingrese Precio">
+											<input type="text" class="form-control" name="price" required value="{{ !empty($product->price) ? $product->price : '' }}" placeholder="Ingrese Precio">
 										</div>
 									</div>
 
 									<div class="col-md-6">
 										<div class="form-group">
 											<label>Precio Anterior ($)<span style="color: red;">*</span> </label>
-											<input type="text" class="form-control" name="old_price" required value="{{ $product->old_price }}" placeholder="Ingrese Precio anterior">
+											<input type="text" class="form-control" name="old_price" required value="{{!empty($product->old_price) ? $product->old_price : ''}}" placeholder="Ingrese Precio anterior">
 										</div>
 									</div>
 
@@ -139,12 +139,31 @@
 														</tr>
 													</thead>
 													<tbody id="AppendSize">
+														@php
+														  $i_s = 1;
+														@endphp
+														@foreach($product->getSize as $size)
+														    <tr id="DeleteSize{{$i_s}}">
+																	<td>
+																		<input type="text" value="{{ $size->name }}" name="size[{{ $i_s }}][name]" placeholder="Nombre" class="form-control">
+																	</td>
+																	<td>
+																		<input type="text" value="{{ $size->price }}" name="size[{{ $i_s }}][price]" placeholder="Precio" class="form-control">
+																	</td>
+																	<td style="width: 100px;">
+																		<button type="button" id="{{ $i_s }}" class="btn btn-danger DeleteSize">Eliminar</button>
+																	</td>
+															</tr>	
+															@php
+														  $i_s++;
+														@endphp
+														@endforeach
 														<tr>
 															<td>
-																<input type="text" name="" placeholder="Nombre" class="form-control">
+																<input type="text" name="size[100][name]" placeholder="Nombre" class="form-control">
 															</td>
 															<td>
-																<input type="text" name="" placeholder="Precio" class="form-control">
+																<input type="text" name="size[100][price]" placeholder="Precio" class="form-control">
 															</td>
 															<td style="width: 100px;">
 																<button type="button" class="btn btn-primary AddSize">Agregar</button>
@@ -153,6 +172,17 @@
 													</tbody>
 												</table>
 											</div>
+										</div>
+									</div>
+								</div>
+
+								<hr>
+
+								<div class="row">
+									<div class="col-md-12">
+										<div class="form-group">
+											<label>Imagen <span style="color: red;"></span> </label>
+											<input type="file" name="image[]" class="form-control" style="padding: 5px;" multiple accept="image/*">
 										</div>
 									</div>
 								</div>
@@ -247,15 +277,15 @@
     });
 
   //todo list
-	var i = 1000;
+	var i = 101;
   $('body').delegate('.AddSize', 'click', function(e) {
     
    var html = '<tr id="DeleteSize'+i+'">\n\
 								<td>\n\
-									<input type="text" name="" placeholder="Nombre" class="form-control">\n\
+									<input type="text" name="size['+i+'][name]" placeholder="Nombre" class="form-control">\n\
 								</td>\n\
 								<td>\n\
-									<input type="text" name="" placeholder="Precio" class="form-control">\n\
+									<input type="text" name="size['+i+'][price]" placeholder="Precio" class="form-control">\n\
 								</td>\n\
 								<td>\n\
 									<button type="button" id="'+i+'" class="btn btn-danger DeleteSize">Borrar</button>\n\
