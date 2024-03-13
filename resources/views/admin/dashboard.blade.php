@@ -92,7 +92,7 @@
                   <tbody>
                   <tr>
                     <td>
-                      <img src="{{ asset('assets/dist/img/default-150x150.png')}}" alt="Product 1" class="img-circle img-size-32 mr-2">
+                      <img src="{{ url('public/assets/dist/img/default-150x150.png')}}" alt="Product 1" class="img-circle img-size-32 mr-2">
                       Some Product
                     </td>
                     <td>$13 USD</td>
@@ -111,7 +111,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <img src="{{ asset('assets/dist/img/default-150x150.png')}}" alt="Product 1" class="img-circle img-size-32 mr-2">
+                      <img src="{{ url('public/assets/dist/img/default-150x150.png')}}" alt="Product 1" class="img-circle img-size-32 mr-2">
                       Another Product
                     </td>
                     <td>$29 USD</td>
@@ -130,7 +130,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <img src="{{ asset('assets/dist/img/default-150x150.png')}}" alt="Product 1" class="img-circle img-size-32 mr-2">
+                      <img src="{{ url('public/assets/dist/img/default-150x150.png')}}" alt="Product 1" class="img-circle img-size-32 mr-2">
                       Amazing Product
                     </td>
                     <td>$1,230 USD</td>
@@ -149,7 +149,7 @@
                   </tr>
                   <tr>
                     <td>
-                      <img src="{{ asset('assets/dist/img/default-150x150.png')}}" alt="Product 1" class="img-circle img-size-32 mr-2">
+                      <img src="{{ url('public/assets/dist/img/default-150x150.png')}}" alt="Product 1" class="img-circle img-size-32 mr-2">
                       Perfect Item
                       <span class="badge bg-danger">NEW</span>
                     </td>
@@ -278,5 +278,5 @@
 
 @section('script')
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('assets/dist/js/pages/dashboard3.js')}}"></script>
+<script src="{{ url('public/assets/dist/js/pages/dashboard3.js')}}"></script>
 @endsection

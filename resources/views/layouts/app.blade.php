@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>eCommerce</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="">
-
-  
+  <title>{{ !empty($meta_title) ? $meta_title : '' }}</title>
+  @if(!empty($meta_description))
+  <meta name="description" content="{{ $meta_description }}">
+  @endif
+  @if(!empty($meta_keywords))
+  <meta name="keywords" content="{{ $meta_keywords }}">
+  @endif  
+   
   <link rel="shortcut icon" href="{{ url('assets/images/icons/favicon.ico') }}">
   
   <!-- Plugins CSS File -->
@@ -16,7 +19,7 @@
   <link rel="stylesheet" href="{{ url('assets/css/plugins/owl-carousel/owl.carousel.css') }}">
   <link rel="stylesheet" href="{{ url('assets/css/plugins/magnific-popup/magnific-popup.css') }}">
   <!-- Main CSS File -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
 </head>
 
 <body>
@@ -144,22 +147,22 @@
           </div>
         </div>
         <div class="col-xl-2-5col col-lg-5 ">
-          <img src="assets/images/popup/newsletter/img-1.jpg" class="newsletter-img" alt="newsletter">
+          <img src="{{ url('assets/images/popup/newsletter/img-1.jpg') }}" class="newsletter-img" alt="newsletter">
         </div>
       </div>
     </div>
   </div>
 </div>
 <!-- Plugins JS File -->
-<script src="{{  url('assets/js/jquery.min.js') }}"></script>
-<script src="{{  url('assets/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{  url('assets/js/jquery.hoverIntent.min.js') }}"></script>
-<script src="{{  url('assets/js/jquery.waypoints.min.js') }}"></script>
-<script src="{{  url('assets/js/superfish.min.js') }}"></script>
-<script src="{{  url('assets/js/owl.carousel.min.js') }}"></script>
-<script src="{{  url('assets/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ url('assets/js/jquery.min.js') }}"></script>
+<script src="{{ url('assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ url('assets/js/jquery.hoverIntent.min.js') }}"></script>
+<script src="{{ url('assets/js/jquery.waypoints.min.js') }}"></script>
+<script src="{{ url('assets/js/superfish.min.js') }}"></script>
+<script src="{{ url('assets/js/owl.carousel.min.js') }}"></script>
+<script src="{{ url('assets/js/jquery.magnific-popup.min.js') }}"></script>
 <!-- Main JS File -->
-<script src="{{  url('assets/js/main.js') }}"></script>
+<script src="{{ url('assets/js/main.js') }}"></script>
 </body>
 
 
