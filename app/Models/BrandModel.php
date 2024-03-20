@@ -23,7 +23,7 @@ class BrandModel extends Model
         ->join('users', 'users.id', '=', 'brand.created_by')
         ->where('brand.is_delete', '=', 0)
         ->orderBy('brand.id', 'desc')
-        ->get();
+        ->paginate(5);
     }
 
 

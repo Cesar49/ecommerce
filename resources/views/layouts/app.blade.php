@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="{{ url('assets/css/plugins/magnific-popup/magnific-popup.css') }}">
   <!-- Main CSS File -->
   <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
+  @yield('style')
 </head>
 
 <body>
@@ -123,7 +124,7 @@
   </div><!-- End .modal-dialog -->
 </div><!-- End .modal -->
 
-<div class="container newsletter-popup-container mfp-hide" id="newsletter-popup-form">
+<!-- <div class="container newsletter-popup-container mfp-hide" id="newsletter-popup-form">
   <div class="row justify-content-center">
     <div class="col-10">
       <div class="row no-gutters bg-white newsletter-popup-content">
@@ -137,13 +138,13 @@
                 <input type="email" class="form-control form-control-white" placeholder="Your Email Address" aria-label="Email Adress" required>
                 <div class="input-group-append">
                   <button class="btn" type="submit"><span>go</span></button>
-                </div><!-- .End .input-group-append -->
-              </div><!-- .End .input-group -->
+                </div>
+              </div>
             </form>
             <div class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input" id="register-policy-2" required>
               <label class="custom-control-label" for="register-policy-2">Do not show this popup again</label>
-            </div><!-- End .custom-checkbox -->
+            </div>
           </div>
         </div>
         <div class="col-xl-2-5col col-lg-5 ">
@@ -152,7 +153,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <!-- Plugins JS File -->
 <script src="{{ url('assets/js/jquery.min.js') }}"></script>
 <script src="{{ url('assets/js/bootstrap.bundle.min.js') }}"></script>
@@ -161,10 +162,10 @@
 <script src="{{ url('assets/js/superfish.min.js') }}"></script>
 <script src="{{ url('assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ url('assets/js/jquery.magnific-popup.min.js') }}"></script>
+@yield('script')
 <!-- Main JS File -->
 <script src="{{ url('assets/js/main.js') }}"></script>
 </body>
-
 
 <!-- molla/index-2.html  22 Nov 2019 09:55:42 GMT -->
 </html>

@@ -241,7 +241,7 @@
 										<div class="form-group">
 											<label>Devoluciones <span style="color: red;">*</span> </label>
 											<textarea name="shipping_returns" class="form-control editor"  placeholder="Ingrese devoluciones">
-												{{ $product->additional_information }}
+												{{ $product->shipping_returns }}
 											</textarea>
 										</div>
 									</div>

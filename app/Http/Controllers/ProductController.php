@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CategoryModel;
 use App\Models\SubCategoryModel;
+use App\Models\ProductModel;
+use App\Models\ColorModel;
+use App\Models\BrandModel;
 
 class ProductController extends Controller
 {
@@ -13,6 +16,9 @@ class ProductController extends Controller
       
       $getCategory = CategoryModel::getSingleSlug($slug);
       $getSubCategory = SubCategoryModel::getSingleSlug($subslug);
+
+      $data['getColor'] = ColorModel::getRecordActive();
+      $data['getBrand'] = BrandModel::getRecordActive();
 
       if (!empty($getCategory) && !empty($getSubCategory))
       {
@@ -23,16 +29,25 @@ class ProductController extends Controller
 
         $data['getSubCategory'] = $getSubCategory;
         $data['getCategory'] = $getCategory;
+
+        $data['getProduct'] = ProductModel::getProduct($getCategory->id, $getSubCategory->id);
+
+        $data['getSubCategoryFilter'] = SubCategoryModel::getRecordSubCategory($getCategory->id);
+
         return view('product.list', $data);
         
       }elseif (!empty($getCategory)) 
       {
+
+        $data['getSubCategoryFilter'] = SubCategoryModel::getRecordSubCategory($getCategory->id);
 
         $data['getCategory'] = $getCategory;
 
         $data['meta_title'] = $getCategory->meta_title;
         $data['meta_keywords'] = $getCategory->meta_keywords;
         $data['meta_description'] = $getCategory->meta_description;
+
+        $data['getProduct'] = ProductModel::getProduct($getCategory->id);
         
         return view('product.list', $data);
 
@@ -41,5 +56,17 @@ class ProductController extends Controller
           abort(404);
       }
         
+    }
+
+
+    public function getFilterProductAjax(Request $request)
+    {
+      $getProduct = ProductModel::getProduct();
+      return response()->json([
+        "status" => true,
+        "success" => view('product._list', [
+        "getProduct" => $getProduct,        
+        ])->render(),
+      ], 200);
     }
 }
